@@ -3,12 +3,10 @@ import ReactDom from 'react-dom'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'  // 用react-redux代替人工管理
 import { createStore, applyMiddleware, compose } from 'redux'
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import reducers from './reducer'
 import './config'
-import Dashboard from './component/dashboard/dashboard'
-import AuthRouter from './component/authroute/authroute'
 import './index.css'
 import App from './app'
 
@@ -27,6 +25,4 @@ ReactDom.render(
     </Provider>),
     document.getElementById('root')
 )
-
-
-// 学 7-2
+// 学 7-2`

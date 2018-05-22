@@ -4,6 +4,9 @@ import BossInfo from './container/bossinfo/bossinfo'
 import GeniusInfo from './container/geniusinfo/geniusinfo'
 import Register from './container/register/register'
 import Chat from "./component/chat/chat"
+import AuthRouter from './component/authroute/authroute'
+import { Route, Switch } from 'react-router-dom'
+import Dashboard from './component/dashboard/dashboard'
 
 // 把所有的公用组件单独放到App中
 class App extends React.Component {

@@ -1,8 +1,6 @@
 
 
 import React from 'react'
-import axios from 'axios'
-import {Card, WhiteSpace, WingBlank} from 'antd-mobile'
 import UserCard from '../usercard/usercard'
 import {connect} from 'react-redux'
 import {getUserList} from '../../redux/chatuser.redux'
@@ -34,8 +32,7 @@ class Genius extends React.Component{
     }
 
     render () {
-        const Header = Card.Header
-        const Body = Card.Body
+
         return (
             // <h2>牛人首页，1111</h2>
             <UserCard userList={this.props.userList}></UserCard>

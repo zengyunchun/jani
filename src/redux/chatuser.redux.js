@@ -27,7 +27,7 @@ export function getUserList(type) {
     return dispatch=>{
         axios.get(`/user/list?type=${type}`)
             .then(res => {
-                if (res.data.code == 0 ) {
+                if (res.data.code === 0 ) {
                     dispatch(userList(res.data.data))
                     // 用dispactch代替setState来同意管理state, 
                     // 注意这里是通过一个action creator(userList)来创建一个action

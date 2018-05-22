@@ -1,8 +1,21 @@
 // 用nodemon来实时更新服务器， 不用手动重启 ！！！！
 // nodemon server/server.js
+
+import csshook from 'css-modules-require-hook/preset'
+import assethook from 'asset-require-hook'
+assethook({
+    extensions: ['png']
+})
+
 import express from 'express'
 // 用babel-node后可以在node服务端使用jsx语法
 // const express = require('express')
+
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux'  // 用react-redux代替人工管理
+import { createStore, applyMiddleware, compose } from 'redux'
+import { StaticRouter } from 'react-router-dom'
+import {reducers} from '../src/reducer'
 
 import ReactDOMServer from 'react-dom/server'
 import App from '../src/app'
@@ -11,7 +24,6 @@ import App from '../src/app'
 const path = require('path')
 
 import React from 'react'
-import thunk from 'redux-thunk';
 
 // 需要安装 npm install body-parser --save
 const bodyParser = require('body-parser')
@@ -66,12 +78,14 @@ app.use(function (req, res, next) {
     ))
     const markup = ReactDOMServer.renderToString(
         <Provider store={store}>
-            <BrowserRouter>
+            <StaticRouter
+                location={req.url}
+                context={context}
+                >
                 <App />
-            </BrowserRouter>
+            </StaticRouter>
         </Provider>
     )
-
     return res.sendFile(path.resolve('build/index.html'))
 })
 

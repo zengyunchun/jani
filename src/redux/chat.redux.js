@@ -24,10 +24,10 @@ export function chat(state=initState, action) {
                 ...state, 
                 chatmsg: action.payload.msgs,
                 users: action.payload.users, 
-                unread:action.payload.msgs.filter(v=>!v.read && v.to == action.payload.userid).length}
+                unread:action.payload.msgs.filter(v=>!v.read && v.to === action.payload.userid).length}
 			// return {...state, users:action.payload.users, chatmsg:action.payload.msgs,unread:action.payload.msgs.filter(v=>!v.read&&v.to==action.payload.userid).length}
          case MSG_RECV:
-            const n = action.payload.to == action.userid
+            const n = action.payload.to === action.userid
            // 巧妙的解构写法来拼接消息队列
            // 先结构state, 里面的chatmsg又是由上一次的state.chatmsg解构后加上当前的payload, 这样就组成了一个记录历史的列表
             return {
@@ -95,7 +95,7 @@ export function getMsgList() {
     return (dispatch, getState)=>{
         axios.get('/user/getmsglist')
             .then(res=>{
-                if (res.status == 200 && res.data.code == 0) {
+                if (res.status === 200 && res.data.code === 0) {
                     console.log("getState is :" , getState())
                     const userid  = getState().user._id
                     dispatch(msgList(res.data.msgs, res.data.users, userid))

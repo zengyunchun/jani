@@ -1,5 +1,4 @@
 import React from 'react'
-import { EDEADLK } from 'constants';
 
 import { List, InputItem, NavBar, Icon, Grid} from 'antd-mobile'
 import {getMsgList, sendMsg, recvMsg, readMsg} from '../../redux/chat.redux'
@@ -70,7 +69,7 @@ class Chat extends React.Component{
             .filter(v=>v)
             .map(v=>({ text: v }))
 
-        {/* // this.props.match 可以获取url参数 */}
+        /* // this.props.match 可以获取url参数 */
         const userid = this.props.match.params.user
         const Item = List.Item
         const users = this.props.chat.users
@@ -80,7 +79,7 @@ class Chat extends React.Component{
         console.log("chatmsg is: ")
         console.log(this.props.chat.chatmsg)
         const chatid = getChatId(userid, this.props.user._id)
-        const chatmsgs = this.props.chat.chatmsg.filter(v=>v.chatid == chatid)
+        const chatmsgs = this.props.chat.chatmsg.filter(v=>v.chatid === chatid)
         return (
             <div id='chat-page'>
                 <NavBar 
@@ -94,7 +93,7 @@ class Chat extends React.Component{
                 </NavBar>
                 {chatmsgs.map(v=>{
                     const avatar = require(`../../img/${users[v.from].avatar}.png`)
-                    return (v.from == userid) ? (
+                    return (v.from === userid) ? (
                         <List key={v._id}>
                             <Item
                                 thumb={avatar}
@@ -103,7 +102,7 @@ class Chat extends React.Component{
                     ) : (
                         <List key={v._id}>
                             <Item
-                                extra={<img src={avatar}/>}
+                                extra={<img src={avatar} alt="头像"/>}
                                 className = 'chat-me'
                             >{v.content}</Item>
                         </List>
@@ -121,6 +120,7 @@ class Chat extends React.Component{
                         extra={
                             <div>
                                 <span 
+                                    role="img"
                                     style={{marginRight:15}}
                                     onClick={()=>{
                                         this.setState({

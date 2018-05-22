@@ -37,7 +37,7 @@ class Msg extends React.Component {
                 {/* 遍历聊天数组列表根据人名生成消息简介 */}
                 {chatList.map(v => {
                     const lastItem = this.getLast(v)
-                    const targetid = v[0].from == userid ? v[0].to : v[0].from
+                    const targetid = v[0].from === userid ? v[0].to : v[0].from
                     const name = userinfo[targetid] && userinfo[targetid].name
                     const avatar = userinfo[targetid] && userinfo[targetid].avatar
                     const unreadnum = v.filter(v=>!v.read && v.to === userid).length
