@@ -13,18 +13,22 @@ import express from 'express'
 
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'  // 用react-redux代替人工管理
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { StaticRouter } from 'react-router-dom'
 import {reducers} from '../src/reducer'
 
 import ReactDOMServer from 'react-dom/server'
-import App from '../src/app'
+//import App from '../src/app'
 // import {renderToString, renderToStaticMarkup} from 'react-dom'
 
 const path = require('path')
 
 import React from 'react'
 
+// function App() {
+//     return <h1>dddd</h1>
+// }
+// console.log(App())
 // 需要安装 npm install body-parser --save
 const bodyParser = require('body-parser')
 
@@ -68,35 +72,36 @@ app.use(cookieParser())
 // 使用cookieParser的中间件
 app.use(bodyParser.json())
 app.use('/user', userRouter)
+
 // 路由过滤
-app.use(function (req, res, next) {
-    if (req.url.startsWith('/user/') || req.url.startsWith('/static/')) {
-        return next();
-    }
-    const store = createStore(reducers, compose(
-        applyMiddleware(thunk)
-    ))
-    const markup = ReactDOMServer.renderToString(
-        <Provider store={store}>
-            <StaticRouter
-                location={req.url}
-                context={context}
-                >
-                <App />
-            </StaticRouter>
-        </Provider>
-    )
-    return res.sendFile(path.resolve('build/index.html'))
-})
+// app.use(function (req, res, next) {
+//     if (req.url.startsWith('/user/') || req.url.startsWith('/static/')) {
+//         return next();
+//     }
+//     const store = createStore(reducers, compose(
+//         applyMiddleware(thunk)
+//     ))
+//     const markup = ReactDOMServer.renderToString(
+//         <Provider store={store}>
+//             <StaticRouter
+//                 location={req.url}
+//                 context={context}
+//                 >
+//                 <App />
+//             </StaticRouter>
+//         </Provider>
+//     )
+//     return res.sendFile(path.resolve('build/index.html'))
+// })
 
 // 设置路径
-app.use('/',express.static(path.resolve('build')))
+// app.use('/',express.static(path.resolve('build')))
 // express 监听的端口 
 // app.listen(2356, () => {
 //     console.log("启动啦！！！！")
 // })
 
 // 用socket.io的时候要用server监听
-server.listen(2345, () => {
+server.listen(2356, () => {
     console.log("启动啦！！！！")
 })

@@ -10,19 +10,18 @@ import Dashboard from './component/dashboard/dashboard'
 
 // 把所有的公用组件单独放到App中
 class App extends React.Component {
-
     render() {
         return (
             <div>
-                <AuthRouter></AuthRouter>
-                <Switch>
+                 <AuthRouter></AuthRouter>
+                 <Switch>
                     <Route path='/bossinfo' component={BossInfo}></Route>
                     <Route path='/geniusinfo' component={GeniusInfo}></Route>
                     <Route path='/login' component={Login}></Route>
                     <Route path='/register' component={Register}></Route>
                     <Route path='/chat/:user' component={Chat}></Route>
                     <Route component={Dashboard}></Route>
-                </Switch>
+                </Switch>  
             </div>
         )
     }
