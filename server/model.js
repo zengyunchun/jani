@@ -1,10 +1,14 @@
 
 // 启动mongodb： 进入安装mongodb的data的目录, 比如本机的
 // c:/data/db mongod
+// D:
+// cd D:\MongoDB\data\db
+// mongod
 const mongoose = require('mongoose')
 
-
 const DB_URL = 'mongodb://localhost:27017/imooc-chat'
+
+//
 mongoose.connect(DB_URL,{ useMongoClient: true })
 
 

@@ -7,7 +7,7 @@ const utils = require('utility')
 // 过滤没有密码的
 const _filter = {'pwd':0,'__v':0}
 
-// 获取所有用户信息 ： http://localhost:2356/user/list
+// 获取所有用户信息 ： http://localhost:5238/user/list
 Router.get('/list', function (req, res) {
     // 清楚所有的用户数据
     //User.remove({},function(e,d){})

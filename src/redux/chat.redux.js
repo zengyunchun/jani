@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import io from 'socket.io-client'
-const sockets = io('ws://localhost:2356')
+const sockets = io('ws://localhost:5238')
 
 // 获取聊天列表
 const MSG_LIST = 'MSG_LIST'

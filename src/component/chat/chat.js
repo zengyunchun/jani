@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import {getChatId} from '../../util'
 
 // import io from 'socket.io-client'
-// const sockets = io('ws://localhost:2356')
+// const sockets = io('ws://localhost:5238')
 
 @connect(
     state=>state,

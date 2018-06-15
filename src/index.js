@@ -17,6 +17,7 @@ const store = createStore(reducers, compose(
     window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
 
+// Provider只是把store存在了context中，并没有做太多事情
 ReactDom.render(
     (<Provider store={store}>
         <BrowserRouter>
