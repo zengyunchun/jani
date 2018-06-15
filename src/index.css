@@ -8,8 +8,9 @@
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height:auto;
+	height:auto !important;
 }
+
 .fixd-header.am-navbar{
 	position: fixed;
 	top: 0;

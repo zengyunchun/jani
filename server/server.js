@@ -19,7 +19,7 @@ import { StaticRouter } from 'react-router-dom'
 import reducers from '../src/reducer'
 
 // import ReactDOMServer from 'react-dom/server'
-import App from '../src/app'
+// import App from '../src/app'
 import {renderToString, renderToStaticMarkup} from 'react-dom/server'
 // 获取资源地址用于SSR插入css和图片
 import staticPath from '../build/asset-manifest.json'
@@ -32,7 +32,7 @@ import React from 'react'
 // function App() {
 //     return <h1>ddddd</h1>
 // }
-console.log(<App/>)
+// console.log(<App/>)
 
 // 需要安装 npm install body-parser --save
 const bodyParser = require('body-parser')
