@@ -103,7 +103,6 @@ Router.post('/update', function(req, res){
     })
 })
 
-
 Router.post('/login', function(req, res) {
     const {user, pwd} = req.body
     User.findOne({user, pwd: md5Pwd(pwd)}, function (err,doc){
@@ -120,6 +119,5 @@ function md5Pwd(pwd) {
     const salt = 'jason_is_boss_595724205@qq'
     return utils.md5(utils.md5(salt + pwd))
 }
-
 
 module.exports = Router

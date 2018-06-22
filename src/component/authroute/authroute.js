@@ -1,17 +1,17 @@
 import React from 'react'
 import axios from 'axios'
-import {withRouter} from 'react-router-dom'
-import {loadData} from '../../redux/user.redux'
-import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { loadData } from '../../redux/user.redux'
+import { connect } from 'react-redux'
 
 
 @withRouter
-@connect (
+@connect(
     null,
-    {loadData}
+    { loadData }
 )
 
-class AuthRoute extends React.Component{
+class AuthRoute extends React.Component {
     componentDidMount() {
         const publicList = ['/login', '/register']
         const pathname = this.props.location.pathname
@@ -20,14 +20,14 @@ class AuthRoute extends React.Component{
         }
 
         // 获取用户信息
-        axios.get('/user/info').then(res=>{
+        axios.get('/user/info').then(res => {
             if (res.status === 200) {
                 if (res.data.code === 0) {
                     this.props.loadData(res.data.data)
                 } else {
                     this.props.history.push('/login')
                 }
-                console.log(res.data)
+                // console.log(res.data)
             }
         })
         //是否登录

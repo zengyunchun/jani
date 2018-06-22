@@ -12,6 +12,7 @@ import { Redirect } from 'react-router-dom'
     { update }
 )
 
+// Boss信息容器模块
 class BossInfo extends React.Component {
     constructor(props, context) {
         super(props, context);

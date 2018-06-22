@@ -95,6 +95,8 @@ export function login({user, pwd}) {
     }
 }
 
+
+
 export function register({user, pwd, repeatpwd, type}) {
     if (!user || !pwd || !type) {
         return errorMsg('用户名密码不能为空')
@@ -103,6 +105,7 @@ export function register({user, pwd, repeatpwd, type}) {
         return errorMsg('密码和确认密码不同')
     }
     // 这里dispatch其实是react-thunk中间件传参数过来的，
+    // https://blog.csdn.net/u010977147/article/details/53519183
     // 为了处理action中的异步问题
     return dispatch => {
         axios.post('/user/register', {user, pwd, type})

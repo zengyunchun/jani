@@ -21,6 +21,7 @@ import {getMsgList, recvMsg} from '../../redux/chat.redux'
 // function Msg() {
 //     return <h2>消息中西2222</h2>
 // }
+
 // function User() {
 //     return <h2>个人中心111</h2>
 // }

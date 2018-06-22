@@ -29,10 +29,10 @@ export function getUserList(type) {
             .then(res => {
                 if (res.data.code === 0 ) {
                     dispatch(userList(res.data.data))
-                    // 用dispactch代替setState来同意管理state, 
+                    // 用dispactch代替setState来统一管理state, 
                     // 注意这里是通过一个action creator(userList)来创建一个action
                     // 之后会被reducer(chatuser)捕获到， 返回新的state来更新状态，最后渲染dom
-                    //this.setState({data:res.data.data})
+                    // this.setState({data:res.data.data})
                 }
         })
     }
