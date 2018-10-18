@@ -4,20 +4,16 @@ import { List, InputItem, WingBlank, WhiteSpace, Button } from 'antd-mobile'
 import { login } from '../../redux/user.redux'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-// import jasonForm from "../../component/jason-form/jason-form";
+import jasonForm from "../../component/jason-form/jason-form";
 
 @connect(
     state => state.user,
     { login }
 )
-// @jasonForm
+@jasonForm
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     user:'',
-        //     pwd:'',
-        // }
         this.register = this.register.bind(this)
         this.hanleLogin = this.hanleLogin.bind(this)
     }

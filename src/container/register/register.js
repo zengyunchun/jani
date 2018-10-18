@@ -12,7 +12,8 @@ import jasonForm from "../../component/jason-form/jason-form";
     state => state.user,
     { register }
 )
-// @jasonForm
+// 可以通过装饰器把公用的函数放到顶层复用，比如这里面的handleChange， 放到jasonForm中，然后赋值到this.props上面
+@jasonForm
 class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -29,6 +30,7 @@ class Register extends React.Component {
         this.props.handleChange('type', 'genius')
     }
 
+    // 放到jasonForm中复用
     // handleChange(key,val) {
     //     this.setState({
     //         [key]:val
