@@ -17,6 +17,12 @@ Router.get('/list', function (req, res) {
     })
 })
 
+Router.get('/clear', function (req, res) {
+    // 清楚所有的用户数据
+    User.remove({},function(e,d){})
+})
+
+
 Router.post('/readmsg', function (req, res) {
      const userid = req.cookies.userid
      const {from} = req.body

@@ -1,5 +1,5 @@
 // 用nodemon来实时更新服务器， 不用手动重启 ！！！！
-// nodemon server/server.js
+// nodemon --experimental-modules server/server.mjs
 
 // node端没有css,所以要用钩子做下处理， 要放在最前头！！！！
 // cmrh.config.js就是csshook的配置文件
